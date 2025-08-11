@@ -1,23 +1,36 @@
 package Java.Training.RestaurantOrderingSystem.src;
 
-import java.util.HashSet;
-
 public class Delivery {
-    private HashSet<String> addresses;
+    private String deliveryAddress;
+    private String deliveryStatus;
+    private int estimatedTimeMinutes;
+    private DeliveryPerson deliveryPerson;
+    private Order order;
 
-    Delivery() {
-        this.addresses = new HashSet<>();
+    Delivery(Order order, String deliveryAddress) {
+        this.deliveryAddress = deliveryAddress;
+        this.deliveryStatus = "RECEIVED";
+        this.order = order;
+        this.calculateEstimatedTime();
     }
 
-    public HashSet<String> getAddresses() {
-        return this.addresses;
+    private void calculateEstimatedTime() {
+        this.estimatedTimeMinutes = (int) Math.floor(Math.random() * 30);
     }
 
-    public void addAddress(String address) {
-        this.addresses.add(address);
+    public void assignDeliveryPerson(DeliveryPerson person) {
+        this.deliveryPerson = person;
     }
 
-    public void removeAddress(String address) {
-        this.addresses.remove(address);
+    public void updateStatus(String status) {
+        this.deliveryStatus = status;
+    }
+
+    public String getDeliveryInfo() {
+        return this.order.getId() + this.deliveryAddress + this.deliveryStatus + this.estimatedTimeMinutes;
+    }
+
+    public DeliveryPerson getDeliveryPerson() {
+        return this.deliveryPerson;
     }
 }
