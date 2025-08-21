@@ -1,4 +1,4 @@
-package com.yeah.SpringSecurityEx;
+package com.yeah.SpringSecurityEx.model;
 
 public class Student {
     private int id;

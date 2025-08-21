@@ -1,5 +1,6 @@
-package com.yeah.SpringSecurityEx;
+package com.yeah.SpringSecurityEx.controller;
 
+import com.yeah.SpringSecurityEx.model.Student;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.bind.annotation.GetMapping;
